@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Models</title>
+    <style>
+        /* Style for category buttons */
+        .category-buttons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .category-buttons button {
+            padding: 10px 15px;
+            border: 1px solid black;
+            border-radius: 20px;
+            cursor: pointer;
+            background: white;
+        }
+
+        /* Hide all content sections initially */
+        .content {
+            display: none;
+        }
+
+        /* Show only the selected section */
+        .active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Nos Modélés</h1>
+
+    <!-- Category Buttons -->
+    <div class="category-buttons">
+        <button onclick="showCategory('berlines')">Berlines</button>
+        <button onclick="showCategory('suv')">SUV/Tout-terrains</button>
+        <button onclick="showCategory('coupes')">Coupés</button>
+    </div>
+
+    <!-- Category Content Sections -->
+    <div id="berlines" class="content">
+        <h2>Berlines</h2>
+        <p>Voici nos modèles de berlines :</p>
+        <ul>
+            <li>EQE - à partir de 916 000 Dh</li>
+            <li>EQS - Prix disponible à la demande</li>
+            <li>Classe A Berline - à partir de 454 000 Dh</li>
+        </ul>
+    </div>
+
+    <div id="suv" class="content">
+        <h2>SUV / Tout-terrains</h2>
+        <p>Voici nos modèles de SUV :</p>
+        <ul>
+            <li>Mercedes GLE - à partir de 750 000 Dh</li>
+            <li>Mercedes G-Class - Prix disponible à la demande</li>
+        </ul>
+    </div>
+
+    <div id="coupes" class="content">
+        <h2>Coupés</h2>
+        <p>Voici nos modèles de Coupés :</p>
+        <ul>
+            <li>Mercedes C-Class Coupé - à partir de 650 000 Dh</li>
+            <li>Mercedes E-Class Coupé - à partir de 800 000 Dh</li>
+        </ul>
+    </div>
+
+    <script>
+        function showCategory(categoryId) {
+            // Get all content sections
+            let sections = document.querySelectorAll('.content');
+
+            // Hide all sections
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Show the selected section
+            document.getElementById(categoryId).classList.add('active');
+        }
+    </script>
+
+</body>
+</html>
