@@ -50,3 +50,63 @@ function showcategory(categoryID) {
     //     Berlines_js_list.style.display = "none";
     // }
 }
+
+// TAHA CODE
+document.addEventListener("DOMContentLoaded", function () {
+    const carousel = document.querySelector(".carousel");
+    const dotsContainer = document.querySelector(".pagination-dots");
+    const leftBtn = document.querySelector(".scroll-btn.left");
+    const rightBtn = document.querySelector(".scroll-btn.right");
+    const cards = document.querySelectorAll(".card");
+    const totalDots = 3; // Toujours afficher 3 points comme sur le site officiel
+    let currentPage = 0;
+
+    // Création des points de pagination
+    for (let i = 0; i < totalDots; i++) {
+        const dot = document.createElement("span");
+        dot.classList.add("dot");
+        if (i === 0) dot.classList.add("active");
+        dot.setAttribute("data-index", i);
+        dot.addEventListener("click", () => goToPage(i));
+        dotsContainer.appendChild(dot);
+    }
+
+    function updateButtons() {
+        leftBtn.style.display = currentPage > 0 ? "block" : "none"; // Cache le bouton gauche si on est sur la première page
+        rightBtn.style.display = currentPage < totalDots - 1 ? "block" : "none"; // Cache le bouton droit si on est à la fin
+    }
+
+    function updateDots() {
+        document.querySelectorAll(".dot").forEach((dot, index) => {
+            dot.classList.toggle("active", index === currentPage);
+        });
+    }
+
+    function goToPage(page) {
+        currentPage = page;
+        const scrollAmount = (carousel.scrollWidth - carousel.clientWidth) / (totalDots - 1); 
+        const newPosition = scrollAmount * page;
+        carousel.scrollTo({ left: newPosition, behavior: "smooth" });
+        updateDots();
+        updateButtons();
+    }
+
+    function scrollCarouselLeft() {
+        if (currentPage > 0) {
+            currentPage--;
+            goToPage(currentPage);
+        }
+    }
+
+    function scrollCarouselRight() {
+        if (currentPage < totalDots - 1) {
+            currentPage++;
+            goToPage(currentPage);
+        }
+    }
+
+    leftBtn.addEventListener("click", scrollCarouselLeft);
+    rightBtn.addEventListener("click", scrollCarouselRight);
+
+    updateButtons(); // Cache le bouton gauche au chargement
+});
