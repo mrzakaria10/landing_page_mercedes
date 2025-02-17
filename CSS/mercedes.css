@@ -7,7 +7,7 @@ html, body {
     margin: 0;
     overflow-x: hidden;
   }
-  .x {
+  #Nos_modeles {
    
     position: relative;
     height: 20%;
@@ -282,7 +282,8 @@ body {
     align-items: center;
     padding: 0 5%;
     color: white;
-   ;
+    width: 100%;
+   
 }
 
 
@@ -454,13 +455,11 @@ p {
 
 .Berliness{
     display: none;
-    justify-content: center;
-    gap: 20PX;
-    margin: 20px 30px;
-    margin-top: 70px;
+    justify-content: space-evenly;
+    margin-top: 3.5%;
     max-height: 100%;
-    max-width: 100VW;
-    margin: auto 10%;
+    max-width: AUTO;
+    margin-bottom: 7%;
 }
 
     
@@ -470,13 +469,16 @@ p {
     border-radius: 15px;
     width: auto;
     border: 1px solid rgba(126, 126, 126, 0.1);
+    margin: auto 0;
     
     
     
 }
-/*.card:hover img {
-        transform: scale(1.1);
-    }*/
+
+
+.to_Display_none{
+    display: none;
+}
 .Berlines_img{
     width: 27vw;
     height: auto;
@@ -485,6 +487,10 @@ p {
 }
 .Berlines_liste:hover {
     transform: scale(1.1);
+    
+}
+.Berlines_liste:hover .Berlines_button{
+  display: block;
 }
 .Berlines_title{
     text-align: center;
@@ -513,7 +519,16 @@ p {
 }
 .Berlines_button{
     text-align: center;
+    display: none;
 }
+
+.Berlines_button_1:hover{
+  transform: scale(1.2)
+} 
+
+.Berlines_button_2:hover{
+  transform: scale(1.2)
+} 
 .Berlines_button_1{
     padding: 10px 20px;
     border-radius: 30px;
@@ -543,7 +558,7 @@ p {
 
 }
 .head_propos{
-    margin-left: 8rem;
+    margin-left: 5rem;
     margin-top: 3rem;
     font-family: Georgia, serif;
     font-weight: 50px;
@@ -562,14 +577,54 @@ p {
 
 
 }
+footer{
+    background-color: black;
+    height: 44em;
+}
+.center_text_footer{
+  text-align: center;
+  padding-top: 0.8rem;
+  color: white;
+  
+}
+.center_text_footer span{
+  padding-bottom: 0;
+  font-size: 25px;
+  color: white;
+  
+}
+.center_text_footer a{
+  color: white;
+  text-decoration: none;
+}
 .footer{
     display: flex;
-    justify-content: space-around;
+    padding: 3em ;
+    padding-left: 3em;
+    margin-top: 4em;
 }
 .footer_display{
-    background-color: gray;
     width: 100%;
-    height: 25rem;
+    margin: 1em;
+    color: white;
+    
+}
+#color{
+  text-decoration: none;
+  color: white;
+}
+hr{
+  color: white;
+  margin-bottom: 1%;
+}
+.last_style{
+  display: flex;
+  padding-left: 1em;
+  color: white;
+}
+.last_style p{
+  margin-left: 1em;
+  margin-right: 1em;
 }
 
 /*TAHA CODE */
@@ -598,6 +653,11 @@ p {
 .carousel-container {
   position: relative;
   max-width: 100%;
+  overflow: hidden;
+}
+
+.relative_position{
+  position: relative;
   overflow: hidden;
 }
 
@@ -686,14 +746,12 @@ background: linear-gradient(to top, rgba(0, 0, 0, 0.957), rgba(0, 0, 0, 0));
   background: #0056b3;
 }
 
-
-/* Navigation buttons */
-.scroll-btn {
+.scroll_berlines {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   background: #d1cece;
-  box-shadow: 0 4px 9px 1px rgba(0, 0, 0, .11);
+  box-shadow: 0 4px 9px 1px rgba(0, 0, 0, 0.11);
   color: black;
   border: none;
   padding: 10px;
@@ -701,6 +759,31 @@ background: linear-gradient(to top, rgba(0, 0, 0, 0.957), rgba(0, 0, 0, 0));
   border-radius: 50%;
   font-size: 1.1rem;
   z-index: 10;
+  margin: auto 1%;
+}
+
+.scroll_berlines.rightt {
+  right: 10px;
+}
+
+.scroll_berlines.liftt {
+  lift: 10px;
+}
+/* Navigation buttons */
+.scroll-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #d1cece;
+  box-shadow: 0 4px 9px 1px rgba(0, 0, 0, 0.11);
+  color: black;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 50%;
+  font-size: 1.1rem;
+  z-index: 10;
+  margin: auto 1%;
 }
 
 .scroll-btn.left {

@@ -6,14 +6,56 @@
 //      } 
 //  });
 
+//let Divs = document.getElementsByClassName("zakaria");
+
+
+// document.addEventListener("Divs", function next(){
+//     for(let i=0;i<3;i++){
+//         Divs[i].style.display="block";
+
+//     }
+
+// })
+
+// for(let i=0;i<3;i++){
+//     Divs[i].style.display="block";
+// }
+// function next() {
+//     let firstDiv;
+//     let lastDiv;
+//    console.log(Divs);
+//   for(let i=0;i<Divs.length;i++){
+//     if(Divs[i].style.display=="block"){
+//         Divs[i].style.display="none";
+//         Divs[i+1].style.display="block";
+//         Divs[i+2].style.display="block";
+//         break;
+
+//     }
+//   }
+
+   
+// }
+
+// function previous() {
+//     Divs[0].style.display="block";
+//     Divs[4].style.display="none";
+// }
+
+
 let Color_black = document.querySelector('.active');
     Color_black.classList.add('active');
 
-
+// to show the first when loading pager
 let first_section = document.querySelector('.Berliness');
-first_section.style.display = "flex";
+for(let i=0; i <= 2; i++){
+    first_section.style.display = "flex";
+
+}
+
+
 function showcategory(categoryID) {
-    //alert("hi zakaria");
+    alert("hi zakaria");
     let sections = document.querySelectorAll('.Berliness');
     
     //hide all section
