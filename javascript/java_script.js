@@ -6,7 +6,7 @@
 //      } 
 //  });
 
-//let Divs = document.getElementsByClassName("zakaria");
+
 
 
 // document.addEventListener("Divs", function next(){
@@ -25,26 +25,39 @@
 //     let lastDiv;
 //    console.log(Divs);
 //   for(let i=0;i<Divs.length;i++){
-//     if(Divs[i].style.display=="block"){
+//     if(Divs[i].style.display=="flex"){
 //         Divs[i].style.display="none";
-//         Divs[i+1].style.display="block";
-//         Divs[i+2].style.display="block";
+//         Divs[i+1].style.display="flex";
+//         Divs[i+2].style.display="flex";
 //         break;
 
 //     }
 //   }
 
    
-// }
+//  }
 
 // function previous() {
 //     Divs[0].style.display="block";
 //     Divs[4].style.display="none";
 // }
 
+// function next() {
+//     alert("next");
+//     let next_site = document.querySelector(".Berliness");
+//     next_site[0].style.display = "none";
+//     console.log(next_site[0]);
 
-let Color_black = document.querySelector('.active');
-    Color_black.classList.add('active');
+// }
+
+
+// function opposite(){
+//     alert("opposite");
+// }
+
+
+// let Color_black = document.querySelector('.active');
+//     Color_black.classList.add('active');
 
 // to show the first when loading pager
 let first_section = document.querySelector('.Berliness');
@@ -68,12 +81,39 @@ function showcategory(categoryID) {
 
 
 
+let indexx = 0;
+const slides = document.querySelectorAll(".Berlines_liste");
+console.log("slides");
+const slider = document.querySelector(".Berlines");
+console.log("slider");
+const visibleSlides = 3;
+const totalSlides = slides.length;
+const slideWidth = window.innerWidth / visibleSlides;
 
 
+function updateSlider() {
+    if (index > totalSlides - visibleSlides) {
+        index = 0;
+    } else if (index < 0) {
+        index = 0;
+    }
+    const offset = -index * slideWidth;
+    slider.style.transform =`translateX(${offset}px)` ;
+}
 
+function next() {
+    index++;
+    updateSlider();
+    alert("next");
+}
 
+function previous() {
+    index--;
+    updateSlider();
+    alert("pre");
+}
 
-
+updateSlider();
 
 
 
