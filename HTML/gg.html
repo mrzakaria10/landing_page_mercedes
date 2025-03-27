@@ -1,144 +1,119 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mercedes-Benz Morocco</title>
-    <link rel="stylesheet" href="styles.css">
+ <!-- main content -->
+ <main>
+        
+  <!-- section content_1 -->
+   <section class="background_img">
 
-    <style>
-        * {
-          box-sizing: border-box;
-          margin: 0;
-          padding: 0;
-        }
-      
-        body {
-          font-family: Arial, sans-serif;
-          background: #f5f5f5;
-        }
-      
-        .container {
-          max-width: 100%;
-          max-height: 90%;
-          margin: 40px auto;
-          padding: 20px;
-        }
-      
-        .grid {
-          width: 100%;
-          display: grid;
-          grid-template-columns: 75% 25%;
-          grid-template-rows: auto;
-          gap: 15px;
-          
-        }
-        .grid1 {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          grid-template-rows: auto;
-          gap: 15px;
-        }
- 
-        .grid2 {
-          
-          display: grid;
-          grid-template-columns: repeat(1, 1fr);
-          grid-template-rows: auto;
-          gap: 15px;
-        }
-      
-        .card {
-          position: relative;
-          border-radius: 10px;
-          overflow: hidden;
-          cursor: pointer;
-        }
-      
-        .card img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          display: block;
-          transition: transform 0.3s ease-in-out;
-        }
+      <article class="article_1">
+      <img src="/photo/Link.png" alt="logo" class="logo_mercedes">
+      <h1 class="head">Demander un RDV <strong>SAV</strong></h1>
+      <p class="paragraph">C'est un fait établi depuis longtemps qu'un lecteur sera distrait par le contenu lisible</p>
+      <button class="button_1" type="submit">Start</button>
+      </article>
+<hr><hr>
+      <article>
+          <div>
+              <h2>Demander un <strong>RDV SAV</strong></h2>
+              <div>
+                  <span>1</span>
+                  <hr>
+                  <span>2</span>
+                  <hr>
+                  <span>3</span>
 
-        .card:hover img {
-        transform: scale(1.1);
-        }
-      
-        .card p {
-          position: absolute;
-          top: 50%;
-          width: 100%;
-          color: white;
-          font-size: 16px;
-          font-weight: bold;
-          text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-          text-align: center;
-        }
-
-        .large {
-            grid-column: span 2;
-        }
-
-        .small {
-          grid-column: span 1;
-        }
-        .tall {
-          grid-column: span 1;
-        }
-      </style>
-
-</head>
-<body>
-<section class="container">
-    <div class="grid">
-               <!-- first one -->
-        <div class="grid1">  
-      <div class="card large">
-        <img src="https://images.netdirector.co.uk/gforces-auto/image/upload/q_auto,c_crop,f_auto,fl_lossy,x_0,y_304,w_1071,h_714/auto-client/71a7448f502f1a2fecc4fd98fa3fa515/mbc68170.jpg" alt="Acheter un véhicule en ligne">
-        <p>Acheter un véhicule en ligne</p>
-      </div>
-    
-        <div class="card small">
-            <img src="https://images.netdirector.co.uk/gforces-auto/image/upload/q_auto,c_fill,f_auto,fl_lossy/auto-client/1784ae28df6f4fec50867d6d8a90d69a/imgsimpleteaser1zusaetzlicheerklaerung.jpg" alt="Demander un essai sur route">
-            <p>Demander un essai sur route</p>
-        </div>
-        <div class="card small">
-            <img src="https://images.netdirector.co.uk/gforces-auto/image/upload/q_auto,c_fill,f_auto,fl_lossy/auto-client/01ab6d1362830e3d9651a224f4addff2/accessories_hero_desktop_1.jpg" alt="Accessoires et Collection">
-            <p>Accessoires et Collection</p>
-        </div>
-           
-                        <!-- second one -->
-
-            <div class="card">
-                <img src="https://images.netdirector.co.uk/gforces-auto/image/upload/q_auto,c_fill,f_auto,fl_lossy/auto-client/5a61d8ca3ec2d59265ac55e07392ce0e/img_textmedia_me_id.jpg" alt="Rechercher des modèles">
-                <p>Rechercher des modèles</p>
               </div>
-          
-              <div class="card ">
-                <img src="https://images.netdirector.co.uk/gforces-auto/image/upload/q_auto,c_fill,f_auto,fl_lossy/auto-client/0d84cb87de73ac7c229c8cc58b200c89/3_2_02.jpg" alt="Découvrir nos Vans">
-                <p>Découvrir nos Vans</p>
-            </div>
-        </div>   
 
-        <div class="grid2">
-            <div class="card small">
-                <img src="https://images.netdirector.co.uk/gforces-auto/image/upload/q_auto,c_fill,f_auto,fl_lossy/auto-client/e037141456e4d3ef042efd1efe372faf/step_03_4_3.jpg" alt="Trouver votre showroom">
-                <p>Trouver votre showroom</p>
-              </div>
-    
-             <div class="card ">
-                <img src="https://images.netdirector.co.uk/gforces-auto/image/upload/q_auto,c_fill,f_auto,fl_lossy/auto-client/79e1c76ad13105901b417611b8c542fa/service.jpg" alt="Demander un rendez-vous SAV">
-                <p>Demander un rendez-vous SAV</p>
-             </div>
+          </div>
+          <div>
+              <img src="/photo/background_sav.png" alt="">
+              <!-- FORM_1 -->
+               <div>
+                  <form>
+                  <label for="pr">Prénom *: </label>
+                  <input id="pr" type="text">
 
-       </div>
+                  <label>Nom *:</label>
+                  <input type="text">
 
-    </div>
+                  <label>Adresse E-mail *:</label>
+                  <input type="email">
 
-  </section>
+                  <label>Numéro de téléphone *:</label>
+                  <input type="tel" placeholder="">
+
+                  <label>Civilité *:</label>
+                  <select>
+                      <article>1</article> 
+                  </select>
+                  </form>
+                  <button type="submit">Suivant </button>
+
+               </div>
+          </div>
+      </article>
   
-</body>
-</html>
+      <article>
+
+          <div>
+              <h2>Demander un <strong>RDV SAV</strong></h2>
+              <div>
+                  <span>1</span>
+                  <hr>
+                  <span>2</span>
+                  <hr>
+                  <span>3</span>
+
+              </div>
+
+          </div>
+          <div>
+              <img src="/photo/background_sav.png" alt="">
+              <!-- FORM_1 -->
+               <div>
+                  <form>
+                  <label for="pr">Immatriculation du<br>véhicule </label>
+                  <input id="pr" type="text">
+
+                  <label>Modèle du véhicule</label>
+                  <input type="text">
+
+                  <label>Kilométrage du<br>véhicule</label>
+                  <input type="number">
+
+                  <label>Choisissez votre point<br>de vente *</label>
+                  <select>
+                      <article>1</article> 
+                  </select>
+                  </form>
+                  <div>
+                      <button type="button">Retour </button>
+                      <button type="submit">Suivant </button>
+
+                  </div>
+
+               </div>
+          </div>
+
+      </article>
+
+      <article>
+          <div>
+              <div>
+                  <span>1</span>
+                  <hr>
+                  <span>2</span>
+                  <hr>
+                  <span>3</span>
+              </div>
+              <div>
+                  <img src="" alt="">
+                  <h1>C'est terminé !</h1>
+                  <p>It is a long established fact that a reader will be distracted by the readable content</p>
+                  <button type="submit">Retour à l'accueil</button>
+              </div>
+          </div>
+          </article>
+
+      </article>
+   </section>
+</main>

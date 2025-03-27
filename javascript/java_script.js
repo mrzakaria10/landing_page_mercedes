@@ -68,7 +68,7 @@ for(let i=0; i <= 2; i++){
 
 
 function showcategory(categoryID) {
-    alert("hi zakaria");
+    
     let sections = document.querySelectorAll('.Berliness');
     
     //hide all section
@@ -80,40 +80,6 @@ function showcategory(categoryID) {
     document.getElementById(categoryID).style.display = "flex";
 
 
-
-let indexx = 0;
-const slides = document.querySelectorAll(".Berlines_liste");
-console.log("slides");
-const slider = document.querySelector(".Berlines");
-console.log("slider");
-const visibleSlides = 3;
-const totalSlides = slides.length;
-const slideWidth = window.innerWidth / visibleSlides;
-
-
-function updateSlider() {
-    if (index > totalSlides - visibleSlides) {
-        index = 0;
-    } else if (index < 0) {
-        index = 0;
-    }
-    const offset = -index * slideWidth;
-    slider.style.transform =`translateX(${offset}px)` ;
-}
-
-function next() {
-    index++;
-    updateSlider();
-    alert("next");
-}
-
-function previous() {
-    index--;
-    updateSlider();
-    alert("pre");
-}
-
-updateSlider();
 
 
 
@@ -131,6 +97,41 @@ updateSlider();
     // } else {
     //     Berlines_js_list.style.display = "none";
     // }
+}
+let index = 0;
+const slides = document.querySelectorAll(".slide");
+const slider = document.querySelector(".slider");
+
+ console.log(slider);
+ console.log(slides);
+const visibleSlides = 3;
+const totalSlides = slides.length;
+const slideWidth = window.innerWidth / visibleSlides;
+
+
+function updateSlider() {
+    console.log("nombre slide "+totalSlides );
+    console.log("index "+index );
+
+    if (index > totalSlides - visibleSlides) {
+        index = 0;
+    } else if (index < 0) {
+        index = 0;
+    }
+    const offset = -index * slideWidth;
+    console.log("offset "+offset );
+    slider.style.transform =`translateX(${offset}px)` ;
+}
+
+function next() {
+    index++;
+    updateSlider();
+}
+
+function previous() {
+    index--;
+    updateSlider();
+
 }
 
 // TAHA CODE
