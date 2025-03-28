@@ -60,3 +60,4 @@ document.querySelectorAll('#vehicleForm input, #vehicleForm select').forEach(inp
         }
     });
 });
+

@@ -193,3 +193,56 @@ document.addEventListener("DOMContentLoaded", function () {
 
     updateButtons(); // Cache le bouton gauche au chargement
 });
+
+// Initialize Swiper
+const swiper = new Swiper('.swiper-container', {
+    slidesPerView: 1,
+    spaceBetween: 30,
+    loop: true,
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+    },
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+    breakpoints: {
+        640: {
+            slidesPerView: 2,
+        },
+        1024: {
+            slidesPerView: 3,
+        },
+    }
+});
+
+// Category switching function
+function showcategory(category) {
+    // Update active state of category buttons
+    const buttons = document.querySelectorAll('.list_nos_modeles_li');
+    buttons.forEach(button => {
+        button.classList.remove('active');
+        if (button.textContent === category) {
+            button.classList.add('active');
+        }
+    });
+
+    // Show the selected category slide
+    const slides = document.querySelectorAll('.swiper-slide');
+    slides.forEach(slide => {
+        if (slide.id === category) {
+            slide.style.display = 'block';
+        } else {
+            slide.style.display = 'none';
+        }
+    });
+
+    // Update Swiper
+    swiper.update();
+}
+
+// Initialize with first category
+document.addEventListener('DOMContentLoaded', () => {
+    showcategory('Berlines');
+});
