@@ -57,192 +57,134 @@
 
 
 // let Color_black = document.querySelector('.active');
-//     Color_black.classList.add('active');
+(() => {
+    const categorySections = document.querySelectorAll('.Berliness');
+    const categoryButtons = document.querySelectorAll('.list_nos_modeles_li');
 
-// to show the first when loading pager
-let first_section = document.querySelector('.Berliness');
-for(let i=0; i <= 2; i++){
-    first_section.style.display = "flex";
-
-}
-
-
-function showcategory(categoryID) {
-    
-    let sections = document.querySelectorAll('.Berliness');
-    
-    //hide all section
-    sections.forEach(section => {
-        section.style.display = "none"; 
-    });
-
-    //show the section 
-    document.getElementById(categoryID).style.display = "flex";
-
-
-
-
-
-
-
-
-    // let listToShow = document.getElementById(categoryID);
-    // alert("ddd");
-    
-    // listToShow.style.display = "flex";
-
-    
-    // if(Berlines_js_list.style.display === "none"){
-    //     Berlines_js_list.style.display = "block";
-    // } else {
-    //     Berlines_js_list.style.display = "none";
-    // }
-}
-let index = 0;
-const slides = document.querySelectorAll(".slide");
-const slider = document.querySelector(".slider");
-
- console.log(slider);
- console.log(slides);
-const visibleSlides = 3;
-const totalSlides = slides.length;
-const slideWidth = window.innerWidth / visibleSlides;
-
-
-function updateSlider() {
-    console.log("nombre slide "+totalSlides );
-    console.log("index "+index );
-
-    if (index > totalSlides - visibleSlides) {
-        index = 0;
-    } else if (index < 0) {
-        index = 0;
-    }
-    const offset = -index * slideWidth;
-    console.log("offset "+offset );
-    slider.style.transform =`translateX(${offset}px)` ;
-}
-
-function next() {
-    index++;
-    updateSlider();
-}
-
-function previous() {
-    index--;
-    updateSlider();
-
-}
-
-// TAHA CODE
-document.addEventListener("DOMContentLoaded", function () {
-    const carousel = document.querySelector(".carousel");
-    const dotsContainer = document.querySelector(".pagination-dots");
-    const leftBtn = document.querySelector(".scroll-btn.left");
-    const rightBtn = document.querySelector(".scroll-btn.right");
-    const cards = document.querySelectorAll(".card");
-    const totalDots = 3; // Toujours afficher 3 points comme sur le site officiel
-    let currentPage = 0;
-
-    // Création des points de pagination
-    for (let i = 0; i < totalDots; i++) {
-        const dot = document.createElement("span");
-        dot.classList.add("dot");
-        if (i === 0) dot.classList.add("active");
-        dot.setAttribute("data-index", i);
-        dot.addEventListener("click", () => goToPage(i));
-        dotsContainer.appendChild(dot);
-    }
-
-    function updateButtons() {
-        leftBtn.style.display = currentPage > 0 ? "block" : "none"; // Cache le bouton gauche si on est sur la première page
-        rightBtn.style.display = currentPage < totalDots - 1 ? "block" : "none"; // Cache le bouton droit si on est à la fin
-    }
-
-    function updateDots() {
-        document.querySelectorAll(".dot").forEach((dot, index) => {
-            dot.classList.toggle("active", index === currentPage);
+    function setActiveCategoryButton(categoryID) {
+        categoryButtons.forEach((button) => {
+            const onclickValue = button.getAttribute('onclick') || '';
+            const isActive = onclickValue.includes(`'${categoryID}'`) || onclickValue.includes(`\"${categoryID}\"`);
+            button.classList.toggle('active', isActive);
         });
     }
 
+    function showCategory(categoryID) {
+        if (!categorySections.length) {
+            return;
+        }
+
+        categorySections.forEach((section) => {
+            section.style.display = section.id === categoryID ? 'flex' : 'none';
+        });
+
+        setActiveCategoryButton(categoryID);
+    }
+
+    window.showcategory = showCategory;
+
+    if (categorySections.length) {
+        showCategory('Berlines');
+    }
+
+    const slider = document.querySelector('.slider');
+    const slides = slider ? Array.from(slider.querySelectorAll('.slide')) : [];
+    let currentSlideIndex = 0;
+
+    function getVisibleSlidesCount() {
+        if (window.innerWidth <= 768) {
+            return 1;
+        }
+        if (window.innerWidth <= 1024) {
+            return 2;
+        }
+        return 3;
+    }
+
+    function updateSlider() {
+        if (!slider || !slides.length) {
+            return;
+        }
+
+        const visibleSlides = getVisibleSlidesCount();
+        const maxIndex = Math.max(slides.length - visibleSlides, 0);
+        currentSlideIndex = Math.min(Math.max(currentSlideIndex, 0), maxIndex);
+
+        const firstSlide = slides[0];
+        const slideWidth = firstSlide
+            ? firstSlide.getBoundingClientRect().width + 20
+            : window.innerWidth / visibleSlides;
+
+        slider.style.transform = `translateX(${-currentSlideIndex * slideWidth}px)`;
+    }
+
+    window.next = () => {
+        if (!slider || !slides.length) {
+            return;
+        }
+        currentSlideIndex += 1;
+        updateSlider();
+    };
+
+    window.previous = () => {
+        if (!slider || !slides.length) {
+            return;
+        }
+        currentSlideIndex -= 1;
+        updateSlider();
+    };
+
+    window.addEventListener('resize', updateSlider);
+    updateSlider();
+
+    const carousel = document.querySelector('.carousel');
+    const dotsContainer = document.querySelector('.pagination-dots');
+    const leftBtn = document.querySelector('.scroll-btn.left');
+    const rightBtn = document.querySelector('.scroll-btn.right');
+    const carouselCards = carousel ? Array.from(carousel.querySelectorAll('.card')) : [];
+
+    if (!carousel || !dotsContainer || !leftBtn || !rightBtn || !carouselCards.length) {
+        return;
+    }
+
+    let currentPage = 0;
+    const cardsPerPage = window.innerWidth <= 978 ? 1 : 3;
+    const totalPages = Math.max(1, Math.ceil(carouselCards.length / cardsPerPage));
+
+    dotsContainer.innerHTML = '';
+    for (let i = 0; i < totalPages; i += 1) {
+        const dot = document.createElement('span');
+        dot.classList.add('dot');
+        if (i === 0) {
+            dot.classList.add('active');
+        }
+        dot.addEventListener('click', () => goToPage(i));
+        dotsContainer.appendChild(dot);
+    }
+
+    function updateDots() {
+        dotsContainer.querySelectorAll('.dot').forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentPage);
+        });
+    }
+
+    function updateButtons() {
+        leftBtn.style.display = currentPage > 0 ? 'block' : 'none';
+        rightBtn.style.display = currentPage < totalPages - 1 ? 'block' : 'none';
+    }
+
     function goToPage(page) {
-        currentPage = page;
-        const scrollAmount = (carousel.scrollWidth - carousel.clientWidth) / (totalDots - 1); 
-        const newPosition = scrollAmount * page;
-        carousel.scrollTo({ left: newPosition, behavior: "smooth" });
+        currentPage = Math.min(Math.max(page, 0), totalPages - 1);
+        const scrollAmount = totalPages > 1
+            ? (carousel.scrollWidth - carousel.clientWidth) / (totalPages - 1)
+            : 0;
+        carousel.scrollTo({ left: scrollAmount * currentPage, behavior: 'smooth' });
         updateDots();
         updateButtons();
     }
 
-    function scrollCarouselLeft() {
-        if (currentPage > 0) {
-            currentPage--;
-            goToPage(currentPage);
-        }
-    }
+    leftBtn.addEventListener('click', () => goToPage(currentPage - 1));
+    rightBtn.addEventListener('click', () => goToPage(currentPage + 1));
 
-    function scrollCarouselRight() {
-        if (currentPage < totalDots - 1) {
-            currentPage++;
-            goToPage(currentPage);
-        }
-    }
-
-    leftBtn.addEventListener("click", scrollCarouselLeft);
-    rightBtn.addEventListener("click", scrollCarouselRight);
-
-    updateButtons(); // Cache le bouton gauche au chargement
-});
-
-// Initialize Swiper
-const swiper = new Swiper('.swiper-container', {
-    slidesPerView: 1,
-    spaceBetween: 30,
-    loop: true,
-    pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-    },
-    navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-    },
-    breakpoints: {
-        640: {
-            slidesPerView: 2,
-        },
-        1024: {
-            slidesPerView: 3,
-        },
-    }
-});
-
-// Category switching function
-function showcategory(category) {
-    // Update active state of category buttons
-    const buttons = document.querySelectorAll('.list_nos_modeles_li');
-    buttons.forEach(button => {
-        button.classList.remove('active');
-        if (button.textContent === category) {
-            button.classList.add('active');
-        }
-    });
-
-    // Show the selected category slide
-    const slides = document.querySelectorAll('.swiper-slide');
-    slides.forEach(slide => {
-        if (slide.id === category) {
-            slide.style.display = 'block';
-        } else {
-            slide.style.display = 'none';
-        }
-    });
-
-    // Update Swiper
-    swiper.update();
-}
-
-// Initialize with first category
-document.addEventListener('DOMContentLoaded', () => {
-    showcategory('Berlines');
-});
+    goToPage(0);
+})();

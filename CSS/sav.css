@@ -52,7 +52,7 @@ main {
     background-size: cover;
     background-position: center;
     position: relative;
-    background: linear-gradient(to top, rgba(255, 255, 255, 1) , rgba(255, 255, 255, 0.2)),url(/photo/background_sav.png) no-repeat center/cover;
+    background: linear-gradient(to top, rgba(255, 255, 255, 1) , rgba(255, 255, 255, 0.2)),url(../photo/background_sav.png) no-repeat center/cover;
     
 }
 
@@ -69,12 +69,9 @@ main {
 .display{
     
     display: grid;
-    grid-template-areas:
-    "h2 progress-steps"
-    "car-image appointmentForm"
-    ;
-    grid-template-columns: 1fr 2fr;
-    gap: 10%;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 2rem;
+    align-items: start;
 
 }
 
@@ -95,7 +92,7 @@ main {
     justify-content: space-around;
     gap: 6rem;
     margin-bottom: 2rem;
-    
+}
 
 .step {
     width: 70px;
@@ -106,7 +103,6 @@ main {
     align-items: center;
     justify-content: center;
     background: white;
-}
 }
 
 .step.active {
@@ -227,9 +223,15 @@ input, select {
         margin: 1rem auto;
     }
 
+    .display {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
     .car-image img {
         max-width: 100%;
         height: auto;
+        margin: 1rem auto;
     }
 }
 
@@ -261,13 +263,10 @@ input, select {
 
     .progress-steps {
         gap: 1rem;
+        justify-content: center;
     }
 
-    .step {
-        width: 35px;
-        height: 35px;
-        font-size: 0.9rem;
-    }
+    .step { width: 45px; height: 45px; font-size: 0.9rem; }
 
     .form-group {
         margin-bottom: 1rem;
@@ -281,6 +280,10 @@ input, select {
     .button-group {
         flex-direction: column;
         gap: 0.8rem;
+    }
+
+    .car-image {
+        display: none;
     }
 
     .back-btn, .next-btn, .start-btn, .return-btn {
@@ -316,8 +319,8 @@ input, select {
     }
 
     .step {
-        width: 30px;
-        height: 30px;
+        width: 40px;
+        height: 40px;
         font-size: 0.8rem;
     }
 

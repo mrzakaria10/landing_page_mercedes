@@ -285,8 +285,19 @@ body {
     font-family: Arial, sans-serif;
 }
 
+.top-version-banner {
+  background: linear-gradient(90deg, #0f172a, #1f2937);
+  color: #f8fafc;
+  text-align: center;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 10px 14px;
+}
+
 .section1 {
-    background-image: url('/photo/img_1.jpg');
+  background-image: url('../photo/img_1.jpg');
     position: relative;
     background-size: cover;
     background-position: center;
@@ -372,7 +383,7 @@ p {
 
 .section2{
   
-    background-image: url('/photo/img_2.jpg');
+  background-image: url('../photo/img_2.jpg');
     position: relative;
     background-size: cover;
     background-position: center;
@@ -1143,4 +1154,214 @@ width: 1140px;
 
 .slide {
   margin: 0 10px;
+}
+
+/* -----------------------------
+   Responsive overrides (phone)
+------------------------------ */
+@media (max-width: 1024px) {
+  #Nos_modeles {
+    height: auto;
+    padding-bottom: 14px;
+  }
+
+  .buttons {
+    position: static;
+    display: flex;
+    align-items: center;
+    overflow-x: auto;
+    gap: 0;
+    white-space: nowrap;
+    padding: 0 10px;
+  }
+
+  .buttons a {
+    font-size: 0.95rem;
+    padding: 10px 12px 14px;
+    left: 0;
+  }
+
+  .dropdown-content,
+  .nested-dropdown-content {
+    position: static;
+    width: auto;
+    margin: 8px 0;
+    box-shadow: none;
+    border: 1px solid #ddd;
+  }
+
+  .nested-dropdown-content {
+    left: auto;
+  }
+
+  .styleNosModeles {
+    margin: 2rem 1rem 1rem;
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .list_nos_modeles {
+    height: auto;
+    margin: 0 0.75rem;
+  }
+
+  .list_nos_modeles_ul {
+    width: 100%;
+    overflow-x: auto;
+    justify-content: flex-start;
+  }
+
+  .list_nos_modeles_li {
+    font-size: 1rem;
+    padding: 12px 16px;
+  }
+
+  .Berliness {
+    flex-wrap: wrap;
+    gap: 14px;
+    justify-content: center;
+    margin: 1rem 0.75rem 2rem;
+  }
+
+  .Berlines_liste {
+    width: min(100%, 480px);
+    margin: 0;
+  }
+
+  .Berlines_img {
+    width: 100%;
+  }
+
+  .Berlines_button {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 0 14px 14px;
+  }
+
+  .Berlines_button_1,
+  .Berlines_button_2 {
+    margin: 0;
+    width: 100%;
+  }
+
+  .section1,
+  .section2 {
+    height: 70vh;
+    min-height: 520px;
+  }
+
+  .section1::before,
+  .section2::before {
+    width: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.2));
+  }
+
+  h1 {
+    font-size: clamp(2rem, 6vw, 3rem);
+    letter-spacing: 0;
+  }
+
+  .EN-LIGNE {
+    width: 100%;
+    padding: 0 1rem;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  #image-en-ligne,
+  #image-en-ligne-2,
+  .en-ligne-1-1 button,
+  .en-ligne-2-1 button {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .en-ligne-1 p,
+  .en-ligne-2 p,
+  .en-ligne-1 a,
+  .en-ligne-2 a {
+    margin-left: 0;
+  }
+
+  .grid_1,
+  .grid1_1,
+  .grid2_1 {
+    grid-template-columns: 1fr;
+  }
+
+  .projects {
+    padding: 12px;
+  }
+
+  .card {
+    height: 480px;
+  }
+
+  .head_propos {
+    margin: 2rem 1rem;
+  }
+
+  .head_propos h1 {
+    font-size: 2rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .head_propos p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  footer {
+    height: auto;
+    padding-bottom: 1rem;
+  }
+
+  .footer {
+    height: auto;
+    flex-direction: column;
+    gap: 8px;
+    padding: 1rem;
+  }
+
+  .last_style {
+    flex-direction: column;
+    height: auto;
+    gap: 4px;
+    padding: 0.8rem 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  #whatsap {
+    width: 60px;
+  }
+
+  #logo-mercedes {
+    margin-top: 14px;
+    margin-left: 12px;
+    width: 70px;
+  }
+
+  #mercedes-benz-font {
+    width: 180px;
+    padding-left: 12px;
+    padding-bottom: 6px;
+  }
+
+  .btn-group {
+    flex-direction: column;
+    width: min(260px, 100%);
+  }
+
+  .btn.primary,
+  .btn.secondary,
+  .btn.primary1 {
+    width: 100%;
+  }
+
+  .scroll_berlines,
+  .scroll-btn {
+    display: none;
+  }
 }
