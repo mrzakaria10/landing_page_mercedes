@@ -33,6 +33,7 @@ html, body {
     height: 20%;
     width: 100%;
     background-color: black;
+    min-height: 140px;
   }
   
   
@@ -309,13 +310,27 @@ body {
   top: 18px;
   right: 14px;
   z-index: 30;
-  background: transparent;
+  background: rgba(0, 0, 0, 0.8);
   color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  border-radius: 999px;
-  padding: 7px 12px;
-  font-size: 0.9rem;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-size: 0.95rem;
   cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  min-height: 44px;
+  min-width: 44px;
+}
+
+.mobile-nav-toggle:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: #ffffff;
+  transform: scale(1.05);
+}
+
+.mobile-nav-toggle:active {
+  transform: scale(0.98);
 }
 
 .section1 {
@@ -1374,10 +1389,12 @@ width: 1140px;
   }
 
   .mobile-nav-toggle {
+    display: block;
     top: 15px;
     right: 10px;
-    padding: 6px 10px;
-    font-size: 0.85rem;
+    padding: 8px 14px;
+    font-size: 0.9rem;
+    border-width: 2px;
   }
 
   .Berlines_liste {
