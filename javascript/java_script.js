@@ -1,70 +1,73 @@
-//  document.addEventListener("DOMContentLoaded", function() {
-//      //select the first content 
-//      let first_section = document.querySelector('.Berliness') 
-//      if (first_section) {
-//          first_section.style.display = "flex";
-//      } 
-//  });
-
-
-
-
-// document.addEventListener("Divs", function next(){
-//     for(let i=0;i<3;i++){
-//         Divs[i].style.display="block";
-
-//     }
-
-// })
-
-// for(let i=0;i<3;i++){
-//     Divs[i].style.display="block";
-// }
-// function next() {
-//     let firstDiv;
-//     let lastDiv;
-//    console.log(Divs);
-//   for(let i=0;i<Divs.length;i++){
-//     if(Divs[i].style.display=="flex"){
-//         Divs[i].style.display="none";
-//         Divs[i+1].style.display="flex";
-//         Divs[i+2].style.display="flex";
-//         break;
-
-//     }
-//   }
-
-   
-//  }
-
-// function previous() {
-//     Divs[0].style.display="block";
-//     Divs[4].style.display="none";
-// }
-
-// function next() {
-//     alert("next");
-//     let next_site = document.querySelector(".Berliness");
-//     next_site[0].style.display = "none";
-//     console.log(next_site[0]);
-
-// }
-
-
-// function opposite(){
-//     alert("opposite");
-// }
-
-
-// let Color_black = document.querySelector('.active');
 (() => {
+    const navRoot = document.querySelector('#Nos_modeles');
+    const navToggle = navRoot ? navRoot.querySelector('.mobile-nav-toggle') : null;
+    const navButtons = navRoot ? navRoot.querySelector('.buttons') : null;
+    const navDropdownLinks = navRoot ? Array.from(navRoot.querySelectorAll('.dropdown')) : [];
+
+    function closeMobileDropdowns(except = null) {
+        navDropdownLinks.forEach((dropdown) => {
+            if (dropdown !== except) {
+                dropdown.classList.remove('dropdown-open');
+            }
+        });
+    }
+
+    if (navToggle && navButtons) {
+        navToggle.addEventListener('click', () => {
+            const isOpen = navButtons.classList.toggle('mobile-open');
+            navToggle.setAttribute('aria-expanded', String(isOpen));
+
+            if (!isOpen) {
+                closeMobileDropdowns();
+            }
+        });
+
+        navDropdownLinks.forEach((dropdown) => {
+            dropdown.addEventListener('click', (event) => {
+                if (window.innerWidth > 768) {
+                    return;
+                }
+
+                const hasContent = dropdown.querySelector('.dropdown-content');
+                if (!hasContent) {
+                    return;
+                }
+
+                event.preventDefault();
+                const shouldOpen = !dropdown.classList.contains('dropdown-open');
+                closeMobileDropdowns(dropdown);
+                dropdown.classList.toggle('dropdown-open', shouldOpen);
+            });
+        });
+
+        document.addEventListener('click', (event) => {
+            if (window.innerWidth > 768 || !navRoot) {
+                return;
+            }
+
+            if (!navRoot.contains(event.target)) {
+                navButtons.classList.remove('mobile-open');
+                navToggle.setAttribute('aria-expanded', 'false');
+                closeMobileDropdowns();
+            }
+        });
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                navButtons.classList.remove('mobile-open');
+                navToggle.setAttribute('aria-expanded', 'false');
+                closeMobileDropdowns();
+            }
+        });
+    }
+
     const categorySections = document.querySelectorAll('.Berliness');
     const categoryButtons = document.querySelectorAll('.list_nos_modeles_li');
 
     function setActiveCategoryButton(categoryID) {
         categoryButtons.forEach((button) => {
             const onclickValue = button.getAttribute('onclick') || '';
-            const isActive = onclickValue.includes(`'${categoryID}'`) || onclickValue.includes(`\"${categoryID}\"`);
+            const isActive = onclickValue.includes(`'${categoryID}'`) || onclickValue.includes(`"${categoryID}"`);
             button.classList.toggle('active', isActive);
         });
     }
