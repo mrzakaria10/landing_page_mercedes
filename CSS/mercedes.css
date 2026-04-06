@@ -5,10 +5,17 @@
   position: fixed;
   bottom:0;
   right: 0;
-  padding: 10;
+  padding: 10px;
   width: 80px;
-  z-index: 1;
+  z-index: 1000;
+  cursor: pointer;
+  transition: transform 0.3s ease;
   }
+  
+  #whatsap:hover {
+    transform: scale(1.1);
+  }
+  
   hr{
   border-color: grey;
   border-width: 0.0001px;
@@ -119,7 +126,7 @@ html, body {
   position: fixed;
   bottom:0;
   right: 0;
-  padding: 10;
+  padding: 10px;
   width: 80px;
   }
   hr{
@@ -878,7 +885,7 @@ background: linear-gradient(to top, rgba(0, 0, 0, 0.957), rgba(0, 0, 0, 0));
 }
 
 .scroll_berlines.liftt {
-  lift: 10px;
+  left: 10px;
 }
 /* Navigation buttons */
 .scroll-btn {
@@ -1347,22 +1354,140 @@ width: 1140px;
   }
 }
 
+/* Mobile responsiveness improvements */
 @media (max-width: 600px) {
   #whatsap {
-    width: 60px;
+    width: 50px;
+    padding: 8px;
   }
 
   #logo-mercedes {
     margin-top: 14px;
     margin-left: 12px;
-    width: 70px;
+    width: 60px;
   }
 
   #mercedes-benz-font {
-    width: 180px;
+    width: 150px;
     padding-left: 12px;
     padding-bottom: 6px;
   }
+
+  .mobile-nav-toggle {
+    top: 15px;
+    right: 10px;
+    padding: 6px 10px;
+    font-size: 0.85rem;
+  }
+
+  .Berlines_liste {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  .Berlines_img {
+    width: 90%;
+  }
+
+  .Berlines_title {
+    font-size: 18px;
+    margin: 15px 10px;
+  }
+
+  .Berlines_paragraphe {
+    font-size: 14px;
+    margin: 8px auto;
+  }
+
+  .Berlines_button_1,
+  .Berlines_button_2 {
+    padding: 8px 16px;
+    margin: 8px auto;
+    font-size: 14px;
+  }
+
+  .head_propos {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-top: 2rem;
+  }
+
+  .head_propos h1 {
+    font-size: 28px;
+    margin-bottom: 1.5rem;
+  }
+
+  .head_propos p {
+    font-size: 16px;
+  }
+
+  .footer {
+    flex-direction: column;
+    height: auto;
+    padding: 1.5em 1em;
+  }
+
+  .footer_display {
+    margin: 0.5em 0;
+  }
+
+  .last_style {
+    flex-direction: column;
+    height: auto;
+    padding: 1em;
+  }
+
+  .last_style p {
+    margin: 0.5em 0;
+  }
+
+  .card {
+    height: 400px !important;
+  }
+
+  .text h3 {
+    font-size: 1rem;
+    padding: 10px;
+  }
+
+  .text button {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+
+  .projects h2 {
+    font-size: 28px;
+  }
+
+  .projects p {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  
+  .container, .container_1 {
+    margin: 20px auto;
+    padding: 10px;
+  }
+
+  .section1, .section2 {
+    height: 60vh;
+    min-height: 400px;
+  }
+
+  h1 {
+    font-size: 1.8rem !important;
+  }
+
+  .styleNosModeles {
+    font-size: 1.5rem !important;
+    margin: 1.5rem 0.5rem 0.5rem;
+  }
+
+  .list_nos_modeles_li {
+    font-size: 0.9rem;
+    padding: 10px 14px;
+  }
+}
 
   .btn-group {
     flex-direction: column;
@@ -1483,5 +1608,185 @@ width: 1140px;
     display: block;
     margin-left: 0 !important;
     margin-bottom: 6px;
+  }
+}
+
+/* Extra responsive improvements for very small mobile devices */
+@media (max-width: 425px) {
+  .section1, .section2 {
+    height: 55vh;
+    min-height: 350px;
+  }
+
+  h1 {
+    font-size: 1.6rem !important;
+    letter-spacing: -1px;
+  }
+
+  .btn {
+    padding: 10px 16px;
+    font-size: 0.9rem;
+  }
+
+  .btn.primary, .btn.primary1 {
+    width: 100px;
+  }
+
+  .btn.secondary {
+    width: 130px;
+  }
+
+  .styleNosModeles {
+    font-size: 1.3rem !important;
+    margin: 1rem 0.5rem;
+  }
+
+  .list_nos_modeles_li {
+    font-size: 0.85rem;
+    padding: 8px 12px;
+  }
+
+  .Berlines_title {
+    font-size: 16px;
+  }
+
+  .Berlines_paragraphe {
+    font-size: 13px;
+  }
+
+  .head_propos h1 {
+    font-size: 24px !important;
+  }
+
+  .head_propos p {
+    font-size: 15px;
+  }
+
+  .card {
+    height: 350px !important;
+  }
+
+  .projects h2 {
+    font-size: 24px !important;
+  }
+
+  .projects p {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 375px) {
+  #whatsap {
+    width: 45px;
+  }
+
+  #logo-mercedes {
+    width: 55px;
+  }
+
+  #mercedes-benz-font {
+    width: 130px;
+  }
+
+  .mobile-nav-toggle {
+    font-size: 0.8rem;
+    padding: 5px 8px;
+  }
+
+  h1 {
+    font-size: 1.4rem !important;
+  }
+
+  .btn {
+    padding: 8px 14px;
+    font-size: 0.85rem;
+  }
+
+  .styleNosModeles {
+    font-size: 1.2rem !important;
+  }
+
+  .list_nos_modeles_li {
+    font-size: 0.8rem;
+    padding: 7px 10px;
+  }
+
+  .card {
+    height: 320px !important;
+  }
+
+  .text h3 {
+    font-size: 0.9rem;
+    padding: 8px;
+  }
+
+  .text button {
+    padding: 7px 10px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 320px) {
+  .section1, .section2 {
+    height: 50vh;
+    min-height: 300px;
+  }
+
+  h1 {
+    font-size: 1.2rem !important;
+  }
+
+  p {
+    font-size: 0.9rem;
+  }
+
+  .btn {
+    padding: 7px 12px;
+    font-size: 0.8rem;
+    width: 90px !important;
+  }
+
+  .styleNosModeles {
+    font-size: 1.1rem !important;
+    margin: 0.8rem 0.3rem;
+  }
+
+  .list_nos_modeles_li {
+    font-size: 0.75rem;
+    padding: 6px 8px;
+  }
+
+  .Berlines_title {
+    font-size: 14px;
+  }
+
+  .Berlines_paragraphe {
+    font-size: 12px;
+  }
+
+  .Berlines_button_1,
+  .Berlines_button_2 {
+    padding: 7px 14px;
+    font-size: 13px;
+  }
+
+  .head_propos h1 {
+    font-size: 20px !important;
+  }
+
+  .head_propos p {
+    font-size: 14px;
+  }
+
+  .card {
+    height: 280px !important;
+  }
+
+  .projects h2 {
+    font-size: 20px !important;
+  }
+
+  .projects p {
+    font-size: 14px;
   }
 }
